@@ -80,7 +80,7 @@ $(function() {
          * a single .entry element within the .feed container.
          */
         beforeEach(function(done) {
-            loadFeed(1, function() {
+            loadFeed(0, function() {
                 done();
             });
         });
@@ -93,22 +93,22 @@ $(function() {
 
     /* This test suite named "New Feed Selection" checks that different feeds are loaded appropriately */
     describe('New Feed Selection', function() {
-        var content;
+        var contentTitle;
         /* This test ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          */
         beforeEach(function(done) {
             loadFeed(1, function() {
-                content = $('.feed .entry-link p').text();
-                loadFeed(2, function() {
+                contentTitle = $('.feed .entry-link h2').text();
+                loadFeed(0, function() {
                     done();
                 });
             });
         });
 
         it('content has changed', function(done) {
-            expect(content).toBeDefined(); // to ensure that the first load was defined
-            expect($('.feed .entry-link p').text()).not.toBe(content);
+            expect(contentTitle).toBeDefined(); // to ensure that the first load was defined
+            expect($('.feed .entry-link h2').text()).not.toBe(contentTitle);
             done();
         });
     });
