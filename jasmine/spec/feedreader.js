@@ -70,7 +70,6 @@ $(function() {
             $menuButton.click();
             expect($body.hasClass('menu-hidden')).toBeTruthy();
         });
-
     });
 
     /* This test suite named "Initial Entries" checks that the first entries are loaded */
@@ -90,7 +89,6 @@ $(function() {
             expect($('.feed').children().length).not.toBe(0);
             done();
         });
-
     });
 
     /* This test suite named "New Feed Selection" checks that different feeds are loaded appropriately */
@@ -104,7 +102,7 @@ $(function() {
                 content = $('.feed .entry-link p').text();
                 loadFeed(2, function() {
                     done();
-                })
+                });
             });
         });
 
@@ -113,6 +111,5 @@ $(function() {
             expect($('.feed .entry-link p').text()).not.toBe(content);
             done();
         });
-
     });
 }());
